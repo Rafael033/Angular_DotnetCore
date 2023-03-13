@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using ProEventos.API.Models;
 
@@ -34,17 +35,20 @@ namespace ProEventos.API.Controllers
 
                         }
        };
+  //      private readonly DbContext _context;
        
-        public EventoController()
-        {
+   //     public EventoController(DbContext context)
+    //    {
+     //       _context = context;
            
-        }
+     //   }
 
          [HttpGet]
         public IEnumerable<Evento> Get()
         {
 
           return _evento;
+         // return _context.Eventos;
 
         }
 
@@ -53,6 +57,7 @@ namespace ProEventos.API.Controllers
         {
 
           return _evento.Where(x => x.EventoId == id);
+          // return _context.Eventos.FirstOrDefault(x => x.EventoId == id);
 
         }
 
