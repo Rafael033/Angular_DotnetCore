@@ -1,7 +1,56 @@
 <h1 >Components Eventos</h1>
 
-<div *ngFor="let item of eventos">
-  <p> <b>Tema: </b> {{item.tema}}</p>
-  <p> <b>Local: </b> {{item.local}}</p>
-</div>
+<form action="" class="form-inline">
+  <div class="form-group-mb-2">
+    <input type="text" class="form control mr-2" placeholder="Pesquisar">
+    <button class="btn btn-outline-primary" (click)="!searchBtn" id="btnSearch">Pesquisar</button>
+  </div>
+</form>
 
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>
+        <button type="button" class="btn btn-outline-secondary btn-sm" (click)="dynamicImg()" id="btnShow">
+         {{showImg? 'Exibir Imagens' : 'Ocultar Imagens'}}
+
+      </button>
+      </th>
+      <th>Tema</th>
+      <th>Local</th>
+      <th>Data</th>
+      <th>Qtd. Pessoas</th>
+      <th>Lote</th>
+      <th>Opções</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="eventos && eventos.length">
+    <tr *ngFor="let item of eventos">
+      <td>{{item.eventoId}}</td>
+      <td>
+        <img *ngIf="!showImg" src="/assets/{{item.imageURL}}"
+        [style.width.px]="widthImg"
+        [style.height.px]="heightImg">
+      </td>
+      <td>{{item.tema}}</td>
+      <td>{{item.local}}</td>
+      <td>{{item.dataEvento}}</td>
+      <td>{{item.qdtPessoas}}</td>
+      <td>{{item.lote}}</td>
+      <td>
+        <button type="button" class="btn btn-outline-success">Edit</button>
+        <button type="button" class="btn btn-outline-danger">Deletar</button>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot *ngIf="!eventos.length">
+    <tr>
+      <td>
+        <h4> Nenhum Evento Encontrado!</h4>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+
+<!-- {{eventos | json}} para filtrar o json retornado na api -->

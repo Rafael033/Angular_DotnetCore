@@ -21,7 +21,7 @@ namespace ProEventos.API.Controllers
                             Lote = 5,
                             QdtPessoas = 20,
                             DataEvento = DateTime.Now.AddDays(3).ToString("dd/MM/yyyy"),
-                            ImageURL = "foto.png"
+                            ImageURL = "foto1.jpg"
 
                         },
                         new Evento(){
@@ -31,7 +31,7 @@ namespace ProEventos.API.Controllers
                             Lote = 5,
                             QdtPessoas = 20,
                             DataEvento = DateTime.Now.AddDays(10).ToString("dd/MM/yyyy"),
-                            ImageURL = "foto.png"
+                            ImageURL = "foto2.jpg"
 
                         }
        };

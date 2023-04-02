@@ -10,10 +10,20 @@ export class EventosComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
 
-  public eventos : any;
+  public eventos : any = [];
+  widthImg : number = 100;
+  heightImg: number = 50;
+  showImg : boolean = true;
+  searchBtn: boolean =false;
+
+  //private _filterSeach : string;
 
   ngOnInit() {
     this.getEventos();
+  }
+
+  dynamicImg(){
+    this.showImg = !this.showImg;
   }
 
   public getEventos(){
